@@ -1,0 +1,96 @@
+/* The supplied liquid button, with one copy of each rule. */
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;width:100%}
+body{font-family:Poppins,"Segoe UI","Microsoft YaHei",sans-serif}
+[hidden]{display:none!important}
+.start-screen{min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:40px 20px}
+.liquid-container{
+  --button-width:20em;
+  --button-height:5em;
+  --handle-size:4em;
+  --border-radius:2.8em;
+  --travel-distance:calc(var(--button-width) - var(--handle-size) - .8em);
+  --primary-color:#718096;
+  --success-color:#00c4ff;
+  --glass-bg:rgba(255,255,255,.4);
+  --text-color:#6a7fa4;
+  --handle-color:#fff;
+  font-family:Poppins,"Segoe UI","Microsoft YaHei",sans-serif;
+  font-size:clamp(12px,4vw,16px);
+  max-width:var(--button-width);
+  max-height:27.75em;
+  perspective:1000px;
+}
+.liquid-input{position:absolute;opacity:0;pointer-events:none}
+.liquid-button{position:relative;display:block;width:var(--button-width);height:var(--button-height);cursor:pointer;user-select:none;text-decoration:none;color:inherit;transform-style:preserve-3d;transition:transform .4s ease;-webkit-tap-highlight-color:transparent}
+.liquid-button:hover{transform:rotateX(8deg) rotateY(-10deg) scale(1.02)}
+.button-bg{position:relative;width:100%;height:100%;border-radius:var(--border-radius);background:linear-gradient(175deg,#d3e6ff 0%,#fff 100%);border:.05em solid rgba(255,255,255,.9);box-shadow:.4em .4em .6em rgba(163,177,198,.8),-.4em -.4em .6em rgba(255,255,255,.311),inset .1em .1em .1em rgba(255,255,255,.8),inset -.1em -.1em .1em rgba(163,177,198,.5);overflow:hidden;transition:background .6s cubic-bezier(.23,1,.32,1),box-shadow .6s cubic-bezier(.23,1,.32,1),transform .4s ease;animation:gentle-float 4s ease-in-out infinite}
+@keyframes gentle-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-.2em)}}
+.glass-layer{position:absolute;top:0;left:0;right:0;height:60%;background:linear-gradient(180deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,.1) 100%);border-radius:var(--border-radius) var(--border-radius) 0 0;pointer-events:none}
+.reflex-shine{position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.6) 50%,transparent 100%);transform:skewX(-25deg);transition:left .8s cubic-bezier(.4,0,.2,1);pointer-events:none}
+.liquid-button:hover .reflex-shine{left:100%}
+.liquid-waves{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s ease}
+.wave{position:absolute;width:200%;height:200%;left:-50%;top:-50%;border-radius:45%}
+.wave-1{background:radial-gradient(ellipse at center,rgba(255,255,255,.4) 0%,transparent 70%);animation:wave-rotate 8s linear infinite;filter:blur(.3em)}
+.wave-2{background:radial-gradient(ellipse at center,rgba(200,200,220,.3) 0%,transparent 70%);animation:wave-rotate 12s linear infinite reverse;filter:blur(.4em)}
+.wave-3{background:radial-gradient(ellipse at center,rgba(220,220,220,.2) 0%,transparent 70%);animation:wave-rotate 15s linear infinite;filter:blur(.5em)}
+.liquid-button .wave{animation-play-state:paused}
+@keyframes wave-rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.liquid-button:hover .liquid-waves{opacity:1}
+.liquid-button:hover .wave{animation-play-state:running}
+.bubble-system{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.bubble{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.8),rgba(255,255,255,.3));opacity:0;animation:bubble-rise var(--duration,3s) ease-in-out infinite var(--delay,0s);animation-play-state:paused}
+.bubble-1{width:.4em;height:.4em;left:15%;--duration:3s;--delay:0s}
+.bubble-2{width:.3em;height:.3em;left:25%;--duration:4s;--delay:.5s}
+.bubble-3{width:.5em;height:.5em;left:35%;--duration:3.5s;--delay:1s}
+.bubble-4{width:.25em;height:.25em;left:50%;--duration:4.5s;--delay:1.5s}
+.bubble-5{width:.35em;height:.35em;left:65%;--duration:3.8s;--delay:2s}
+.bubble-6{width:.3em;height:.3em;left:80%;--duration:4.2s;--delay:2.5s}
+@keyframes bubble-rise{0%{bottom:-.5em;opacity:0;transform:translateX(0) scale(.5)}10%,90%{opacity:1}100%{bottom:4em;opacity:0;transform:translateX(.5em) scale(1)}}
+.liquid-button:hover .bubble{animation-play-state:running}
+.text-content{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.text-initial,.text-confirmed{position:absolute;margin:0;font-weight:600;font-size:1.4em;line-height:1.4;color:var(--text-color);text-shadow:0 .1em .3em rgba(255,255,255,.8);transition:opacity .8s cubic-bezier(.23,1,.32,1),transform .8s cubic-bezier(.23,1,.32,1);text-align:center}
+.text-initial{left:calc(var(--handle-size) + 1em);right:1em;font-size:1em;letter-spacing:0;white-space:nowrap}
+.text-confirmed{left:1em;right:calc(var(--handle-size) + 1em);opacity:0;transform:translateY(1em) scale(.9);color:var(--success-color);letter-spacing:.08em}
+.char{display:inline-block;transition:transform .8s cubic-bezier(.4,0,.2,1),opacity .8s cubic-bezier(.4,0,.2,1);transition-delay:calc(var(--i) * .05s)}
+.liquid-button:hover .text-initial .char{transform:translateY(-.2em);animation:char-celebrate .8s cubic-bezier(.4,0,.2,1) forwards;animation-delay:calc(var(--i) * .08s)}
+.swipe-handle{position:absolute;left:.4em;top:50%;transform:translateY(-50%);width:var(--handle-size);height:var(--handle-size);background:var(--handle-color);border-radius:50%;box-shadow:0 .3em 1em rgba(0,0,0,.2),inset 0 .1em .3em rgba(255,255,255,.8),inset 0 -.1em .2em rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;z-index:10;transition:transform .8s cubic-bezier(.23,1,.32,1),background .8s cubic-bezier(.23,1,.32,1)}
+.handle-glow{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(100,110,200,.4),transparent 70%);opacity:0;transition:opacity .4s ease}
+.icon-lock,.icon-unlock{position:absolute;width:1.8em;height:1.8em;color:var(--primary-color);transition:opacity .6s cubic-bezier(.23,1,.32,1),transform .6s cubic-bezier(.23,1,.32,1),color .6s ease}
+.icon-lock{opacity:1;transform:scale(1)}
+.icon-unlock{opacity:0;transform:scale(.8)}
+.liquid-button:hover .handle-glow{opacity:1}
+.liquid-button:hover .swipe-handle{transform:translateY(-50%) scale(1.05)}
+.liquid-button:active .swipe-handle{transform:translateY(-50%) scale(.95)}
+.particle-burst{position:absolute;right:var(--handle-size);top:50%;transform:translateY(-50%);width:2em;height:2em;pointer-events:none}
+.particle{position:absolute;width:.2em;height:.2em;background:var(--success-color);border-radius:50%;opacity:0}
+.particle-1{top:.2em;left:.5em;--dx:1.5em;--dy:-.8em;--i:1}
+.particle-2{top:.8em;left:.2em;--dx:.8em;--dy:1.2em;--i:2}
+.particle-3{top:1.2em;left:.9em;--dx:-.5em;--dy:1.5em;--i:3}
+.particle-4{top:.4em;left:1.1em;--dx:1.8em;--dy:-1.2em;--i:4}
+.particle-5{top:1em;left:1.4em;--dx:-1.2em;--dy:-.6em;--i:5}
+.particle-6{top:.1em;left:.8em;--dx:1em;--dy:-1.8em;--i:6}
+.particle-7{top:1.4em;left:.6em;--dx:-.8em;--dy:1em;--i:7}
+.particle-8{top:.6em;left:.1em;--dx:1.3em;--dy:.8em;--i:8}
+.ripple-effect{position:absolute;right:1.4em;top:50%;transform:translateY(-50%);width:2em;height:2em;pointer-events:none}
+.ripple{position:absolute;inset:0;border:.1em solid var(--success-color);border-radius:50%;opacity:0;transform:scale(0)}
+.liquid-input:checked + .liquid-button .swipe-handle{transform:translateY(-50%) translateX(var(--travel-distance));background:linear-gradient(135deg,var(--success-color),#32cdc0)}
+.liquid-input:checked + .liquid-button .icon-lock{opacity:0;transform:scale(.8)}
+.liquid-input:checked + .liquid-button .icon-unlock{opacity:1;transform:scale(1.1);color:#fff}
+.liquid-input:checked + .liquid-button .text-initial{opacity:0;transform:translateY(-1em) scale(1.1)}
+.liquid-input:checked + .liquid-button .text-confirmed{opacity:1;transform:translateY(0) scale(1);color:#fff;text-shadow:0 .1em .4em rgba(0,0,0,.25)}
+.liquid-input:checked + .liquid-button .text-confirmed .char{animation:char-celebrate .8s cubic-bezier(.4,0,.2,1) forwards;animation-delay:calc(var(--i) * .08s)}
+@keyframes char-celebrate{0%{transform:translateY(1em) rotate(-10deg) scale(.8);opacity:0}50%{transform:translateY(-.3em) rotate(5deg) scale(1.1)}100%{transform:translateY(0) rotate(0) scale(1);opacity:1}}
+.liquid-input:checked + .liquid-button .particle{animation:particle-burst .8s cubic-bezier(.4,0,.2,1) forwards;animation-delay:calc(var(--i,0) * .1s)}
+@keyframes particle-burst{0%{opacity:1;transform:translate(0,0) scale(0)}50%{opacity:1}100%{opacity:0;transform:translate(var(--dx,1em),var(--dy,-1em)) scale(1.5)}}
+.liquid-input:checked + .liquid-button .ripple{animation:ripple-expand 1.2s ease-out forwards}
+.liquid-input:checked + .liquid-button .ripple-1{animation-delay:.1s}
+.liquid-input:checked + .liquid-button .ripple-2{animation-delay:.3s}
+.liquid-input:checked + .liquid-button .ripple-3{animation-delay:.5s}
+@keyframes ripple-expand{0%{opacity:1;transform:scale(0)}50%{opacity:.8}100%{opacity:0;transform:scale(2)}}
+.liquid-input:checked + .liquid-button .button-bg{background:linear-gradient(135deg,var(--success-color) 0%,#32cdc3 100%);box-shadow:0 .5em 2em rgba(0,218,242,.4),inset 0 .1em .3em rgba(255,255,255,.5),inset 0 -.1em .2em rgba(0,0,0,.1)}
+.liquid-input:checked + .liquid-button .liquid-waves{opacity:1}
+.liquid-input:checked + .liquid-button .wave,.liquid-input:checked + .liquid-button .bubble{animation-play-state:running}
+.liquid-button:focus-visible{outline:.15em solid #a4b8dc;outline-offset:.35em;border-radius:var(--border-radius)}
+@media(pointer:coarse){.liquid-button:hover .reflex-shine{left:-100%}.liquid-button:hover .liquid-waves{opacity:.5}.liquid-button:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.liquid-button:hover{transform:none}}

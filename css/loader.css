@@ -1,0 +1,348 @@
+.loader-showcase {
+  position: relative;
+  display: grid;
+  flex: 0 0 auto;
+  width: 190px;
+  height: 140px;
+  place-items: center;
+  pointer-events: none;
+}
+
+.loader-showcase #ghost {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0;
+  transform: scale(0.8);
+  transform-origin: center center;
+}
+
+.loader-showcase #red {
+  position: relative;
+  display: grid;
+  width: 140px;
+  height: 140px;
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: repeat(14, 1fr);
+  grid-template-areas:
+    "a1  a2  a3  a4  a5  top0  top0  top0  top0  a10 a11 a12 a13 a14"
+    "b1  b2  b3  top1 top1 top1 top1 top1 top1 top1 top1 b12 b13 b14"
+    "c1 c2 top2 top2 top2 top2 top2 top2 top2 top2 top2 top2 c13 c14"
+    "d1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 d14"
+    "e1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 e14"
+    "f1 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 top3 f14"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4 top4"
+    "st0 st0 an4 st1 an7 st2 an10 an10 st3 an13 st4 an16 st5 st5"
+    "an1 an2 an3 an5 an6 an8 an9 an9 an11 an12 an14 an15 an17 an18";
+  animation: ghost-float 0.5s infinite;
+}
+
+.loader-showcase #top0,
+.loader-showcase #top1,
+.loader-showcase #top2,
+.loader-showcase #top3,
+.loader-showcase #top4,
+.loader-showcase #st0,
+.loader-showcase #st1,
+.loader-showcase #st2,
+.loader-showcase #st3,
+.loader-showcase #st4,
+.loader-showcase #st5 {
+  background-color: red;
+}
+
+.loader-showcase #top0 {
+  grid-area: top0;
+}
+
+.loader-showcase #top1 {
+  grid-area: top1;
+}
+
+.loader-showcase #top2 {
+  grid-area: top2;
+}
+
+.loader-showcase #top3 {
+  grid-area: top3;
+}
+
+.loader-showcase #top4 {
+  grid-area: top4;
+}
+
+.loader-showcase #st0 {
+  grid-area: st0;
+}
+
+.loader-showcase #st1 {
+  grid-area: st1;
+}
+
+.loader-showcase #st2 {
+  grid-area: st2;
+}
+
+.loader-showcase #st3 {
+  grid-area: st3;
+}
+
+.loader-showcase #st4 {
+  grid-area: st4;
+}
+
+.loader-showcase #st5 {
+  grid-area: st5;
+}
+
+.loader-showcase #an1,
+.loader-showcase #an18 {
+  grid-area: an1;
+  animation: ghost-flicker0 0.5s infinite;
+}
+
+.loader-showcase #an18 {
+  grid-area: an18;
+}
+
+.loader-showcase #an2,
+.loader-showcase #an3,
+.loader-showcase #an4,
+.loader-showcase #an9,
+.loader-showcase #an10,
+.loader-showcase #an15,
+.loader-showcase #an16,
+.loader-showcase #an17 {
+  animation: ghost-flicker1 0.5s infinite;
+}
+
+.loader-showcase #an2 {
+  grid-area: an2;
+}
+
+.loader-showcase #an3 {
+  grid-area: an3;
+}
+
+.loader-showcase #an4 {
+  grid-area: an4;
+}
+
+.loader-showcase #an5 {
+  grid-area: an5;
+}
+
+.loader-showcase #an6,
+.loader-showcase #an7,
+.loader-showcase #an8,
+.loader-showcase #an11,
+.loader-showcase #an12,
+.loader-showcase #an13,
+.loader-showcase #an14 {
+  animation: ghost-flicker0 0.5s infinite;
+}
+
+.loader-showcase #an6 {
+  grid-area: an6;
+}
+
+.loader-showcase #an7 {
+  grid-area: an7;
+}
+
+.loader-showcase #an8 {
+  grid-area: an8;
+}
+
+.loader-showcase #an9 {
+  grid-area: an9;
+}
+
+.loader-showcase #an10 {
+  grid-area: an10;
+}
+
+.loader-showcase #an11 {
+  grid-area: an11;
+}
+
+.loader-showcase #an12 {
+  grid-area: an12;
+}
+
+.loader-showcase #an13 {
+  grid-area: an13;
+}
+
+.loader-showcase #an14 {
+  grid-area: an14;
+}
+
+.loader-showcase #an15 {
+  grid-area: an15;
+}
+
+.loader-showcase #an16 {
+  grid-area: an16;
+}
+
+.loader-showcase #an17 {
+  grid-area: an17;
+}
+
+.loader-showcase #eye {
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  width: 40px;
+  height: 50px;
+}
+
+.loader-showcase #eye::before,
+.loader-showcase #eye1::before {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 50px;
+  background-color: white;
+  transform: translateX(10px);
+  content: "";
+}
+
+.loader-showcase #eye::after,
+.loader-showcase #eye1::after {
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 30px;
+  background-color: white;
+  transform: translateY(10px);
+  content: "";
+}
+
+.loader-showcase #eye1 {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 40px;
+  height: 50px;
+}
+
+.loader-showcase #pupil,
+.loader-showcase #pupil1 {
+  position: absolute;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+  background-color: blue;
+  animation: ghost-eyes-move 3s infinite;
+}
+
+.loader-showcase #pupil {
+  top: 50px;
+  left: 10px;
+}
+
+.loader-showcase #pupil1 {
+  top: 50px;
+  right: 50px;
+}
+
+.loader-showcase #shadow {
+  position: absolute;
+  top: 80%;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: black;
+  filter: blur(20px);
+  transform: rotateX(80deg);
+  animation: ghost-shadow 0.5s infinite;
+}
+
+@keyframes ghost-float {
+  0%,
+  49% {
+    transform: translateY(0);
+  }
+
+  50%,
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes ghost-flicker0 {
+  0%,
+  49% {
+    background-color: red;
+  }
+
+  50%,
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes ghost-flicker1 {
+  0%,
+  49% {
+    background-color: transparent;
+  }
+
+  50%,
+  100% {
+    background-color: red;
+  }
+}
+
+@keyframes ghost-eyes-move {
+  0%,
+  49%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50%,
+  99% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes ghost-shadow {
+  0%,
+  49% {
+    opacity: 0.5;
+  }
+
+  50%,
+  100% {
+    opacity: 0.2;
+  }
+}
+
+@media (max-width: 640px) {
+  .loader-showcase {
+    width: 150px;
+    height: 140px;
+  }
+
+  .loader-showcase #ghost {
+    transform: scale(0.64);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-showcase #red,
+  .loader-showcase #pupil,
+  .loader-showcase #pupil1,
+  .loader-showcase #shadow,
+  .loader-showcase [id^="an"] {
+    animation: none;
+  }
+}
