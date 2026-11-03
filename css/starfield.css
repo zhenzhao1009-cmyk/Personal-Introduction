@@ -1070,3 +1070,58 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .starfield > div { animation: none; }
 }
+
+@media (max-width: 900px) {
+  .container.starfield {
+    --star-unit-x: 0.1vw;
+    --star-unit-y: 0.1vh;
+    --star-repeat: max(2000px, 100vh);
+  }
+
+  .starfield > div {
+    animation: none;
+  }
+
+  .starfield #stars {
+    --star-size: 1px;
+    --star-duration: 0s;
+    --star-shadows:
+      calc(var(--star-unit-x) * 501) calc(var(--star-unit-y) * 811) #fff,
+      calc(var(--star-unit-x) * 1450) calc(var(--star-unit-y) * 1324) #fff,
+      calc(var(--star-unit-x) * 1093) calc(var(--star-unit-y) * 1780) #fff,
+      calc(var(--star-unit-x) * 1469) calc(var(--star-unit-y) * 678) #fff,
+      calc(var(--star-unit-x) * 904) calc(var(--star-unit-y) * 741) #fff,
+      calc(var(--star-unit-x) * 1160) calc(var(--star-unit-y) * 781) #fff,
+      calc(var(--star-unit-x) * 1841) calc(var(--star-unit-y) * 1962) #fff,
+      calc(var(--star-unit-x) * 1630) calc(var(--star-unit-y) * 1667) #fff,
+      calc(var(--star-unit-x) * 1788) calc(var(--star-unit-y) * 676) #fff,
+      calc(var(--star-unit-x) * 367) calc(var(--star-unit-y) * 1734) #fff,
+      calc(var(--star-unit-x) * 1343) calc(var(--star-unit-y) * 156) #fff,
+      calc(var(--star-unit-x) * 1283) calc(var(--star-unit-y) * 1142) #fff;
+  }
+
+  .starfield #stars2 {
+    --star-size: 2px;
+    --star-duration: 0s;
+    --star-shadows:
+      calc(var(--star-unit-x) * 200) calc(var(--star-unit-y) * 981) #fff,
+      calc(var(--star-unit-x) * 1731) calc(var(--star-unit-y) * 521) #fff,
+      calc(var(--star-unit-x) * 132) calc(var(--star-unit-y) * 1039) #fff,
+      calc(var(--star-unit-x) * 1888) calc(var(--star-unit-y) * 1547) #fff,
+      calc(var(--star-unit-x) * 899) calc(var(--star-unit-y) * 1226) #fff,
+      calc(var(--star-unit-x) * 1548) calc(var(--star-unit-y) * 1092) #fff,
+      calc(var(--star-unit-x) * 1626) calc(var(--star-unit-y) * 689) #fff,
+      calc(var(--star-unit-x) * 254) calc(var(--star-unit-y) * 1072) #fff;
+  }
+
+  .starfield #stars3 {
+    --star-size: 3px;
+    --star-duration: 0s;
+    --star-shadows:
+      calc(var(--star-unit-x) * 200) calc(var(--star-unit-y) * 981) #fff,
+      calc(var(--star-unit-x) * 1731) calc(var(--star-unit-y) * 521) #fff,
+      calc(var(--star-unit-x) * 132) calc(var(--star-unit-y) * 1039) #fff,
+      calc(var(--star-unit-x) * 1888) calc(var(--star-unit-y) * 1547) #fff,
+      calc(var(--star-unit-x) * 899) calc(var(--star-unit-y) * 1226) #fff;
+  }
+}

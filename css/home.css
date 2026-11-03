@@ -76,6 +76,14 @@ body {
   flex: 0 0 auto;
 }
 
+.glass-card--hero.is-offscreen .loader-showcase #red,
+.glass-card--hero.is-offscreen .loader-showcase #pupil,
+.glass-card--hero.is-offscreen .loader-showcase #pupil1,
+.glass-card--hero.is-offscreen .loader-showcase #shadow,
+.glass-card--hero.is-offscreen .loader-showcase [id^="an"] {
+  animation-play-state: paused;
+}
+
 .glass-card--empty {
   flex: 0 0 auto;
   min-height: clamp(280px, 40vh, 480px);
@@ -316,6 +324,11 @@ body {
   :root {
     --page-gutter: 14px;
     --card-radius: 24px;
+  }
+
+  .profile-page::before {
+    filter: none;
+    animation: none;
   }
 
   .showcase {

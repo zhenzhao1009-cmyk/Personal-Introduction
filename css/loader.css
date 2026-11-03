@@ -335,6 +335,18 @@
   .loader-showcase #ghost {
     transform: scale(0.64);
   }
+
+  .loader-showcase #red,
+  .loader-showcase #pupil,
+  .loader-showcase #pupil1,
+  .loader-showcase #shadow,
+  .loader-showcase [id^="an"] {
+    animation: none;
+  }
+
+  .loader-showcase #shadow {
+    filter: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

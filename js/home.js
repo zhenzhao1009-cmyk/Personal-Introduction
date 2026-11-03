@@ -40,3 +40,15 @@ for (const button of copyButtons) {
     }
   });
 }
+
+const hero = document.querySelector(".glass-card--hero");
+
+if (hero && "IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      hero.classList.toggle("is-offscreen", !entry.isIntersecting);
+    },
+    { rootMargin: "120px 0px" }
+  );
+  observer.observe(hero);
+}
