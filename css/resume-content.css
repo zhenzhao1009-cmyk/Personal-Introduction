@@ -420,7 +420,7 @@
 @media (max-width: 640px) {
   .resume-one,
   .resume-two {
-    padding: 28px 18px 34px;
+    padding: 28px var(--page-gutter) 34px;
   }
 
   .resume-heading {

@@ -323,7 +323,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 16px 18px;
+    padding: 16px var(--page-gutter);
   }
 
   .glass-card--hero {
@@ -331,7 +331,7 @@ body {
   }
 
   .card-content {
-    padding: 32px 18px 56px;
+    padding: 32px var(--page-gutter) 56px;
   }
 
   .contact-grid {
