@@ -12,12 +12,14 @@
 
 html {
   min-height: 100%;
+  overflow-x: hidden;
   background: #090a0f;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   font-family: Poppins, "Segoe UI", "Microsoft YaHei", sans-serif;
 }
 
@@ -74,6 +76,11 @@ body {
   flex: 0 0 auto;
 }
 
+.glass-card--empty {
+  flex: 0 0 auto;
+  min-height: clamp(280px, 40vh, 480px);
+}
+
 .glass-card::before {
   position: absolute;
   inset: 0;
@@ -98,7 +105,6 @@ body {
 .showcase {
   position: relative;
   display: flex;
-  min-height: 100%;
   align-items: center;
   justify-content: center;
   gap: clamp(24px, 5vw, 96px);
@@ -293,6 +299,7 @@ body {
   .glass-card {
     background: transparent;
   }
+
 }
 
 @keyframes ambient-drift {

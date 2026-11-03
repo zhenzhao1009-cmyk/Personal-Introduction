@@ -2,8 +2,12 @@ const copyButtons = document.querySelectorAll("[data-copy]");
 
 async function copyText(text) {
   if (navigator.clipboard?.writeText) {
-    await navigator.clipboard.writeText(text);
-    return;
+    try {
+      await navigator.clipboard.writeText(text);
+      return;
+    } catch {
+      // Fall back for browsers that block clipboard access on local files.
+    }
   }
 
   const textarea = document.createElement("textarea");
