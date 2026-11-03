@@ -327,7 +327,7 @@ body {
   }
 
   .glass-card--hero {
-    min-height: 560px;
+    min-height: clamp(360px, 48svh, 430px);
   }
 
   .card-content {

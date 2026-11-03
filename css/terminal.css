@@ -188,7 +188,7 @@
 
 @media (max-width: 900px) {
   .terminal-showcase {
-    flex-basis: 400px;
+    flex-basis: auto;
     width: min(100%, 400px);
   }
 
